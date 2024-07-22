@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  db:
+    image: mariadb:10.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: notSecureChangeMe
+      MYSQL_USER: bamba            # Spécifiez un utilisateur de base de données
+      MYSQL_PASSWORD: notSecureChangeMe    # Spécifiez le mot de passe de l'utilisateur
+    ports:
+      - "3306:3306"               # Exposez le port 3306
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8088:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db              # Spécifiez le nom du service db comme hôte
+      - PMA_USER=root            # Spécifiez l'utilisateur de la base de données
+      - PMA_PASSWORD=notSecureChangeMe    # Spécifiez le mot de passe de l'utilisateur
