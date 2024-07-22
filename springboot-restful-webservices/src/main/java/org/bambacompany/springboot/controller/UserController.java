@@ -1,11 +1,13 @@
 package org.bambacompany.springboot.controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.bambacompany.springboot.dto.UserDto;
-import org.bambacompany.springboot.exceptions.ErrorDetails;
-import org.bambacompany.springboot.exceptions.ResourceNotFoundException;
 import org.bambacompany.springboot.service.IUserService;
 
 import org.slf4j.Logger;
@@ -13,12 +15,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-
+@Tag(
+        name = "CRUD REST APIs for User Resource",
+        description = "Create User, Update User, Get All Users, Delete User"
+)
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/users")
@@ -27,6 +32,14 @@ public class UserController {
     private IUserService _userService;
     public static final Logger log = LoggerFactory.getLogger(UserController.class);
 
+    @Operation(
+            summary = "Create User REST API",
+            description = "CREATE User REST API is used to save user in database"
+    )
+    @ApiResponse(
+            responseCode = "201",
+            description = "HTTP Status 201 CREATED"
+    )
     @PostMapping
     ResponseEntity<UserDto> createRequest(@RequestBody UserDto user){
         log.info("Creating user: {}", user);
@@ -35,6 +48,14 @@ public class UserController {
 
     }
 
+    @Operation(
+            summary = "Fetch  All User REST API",
+            description = "Fetch All user REST API is used to fetch user in database"
+    )
+    @ApiResponse(
+            responseCode = "201",
+            description = "HTTP Status 201 FETCHED"
+    )
     @GetMapping
     ResponseEntity<List<UserDto>> getAllUser(){
     List<UserDto> userDto = _userService.findAllUser();

@@ -6,7 +6,7 @@ import org.bambacompany.springboot.entity.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-07-22T12:46:53+0000",
+    date = "2024-07-22T15:43:52+0000",
     comments = "version: 1.6.0.Beta1, compiler: javac, environment: Java 21.0.2 (Eclipse Adoptium)"
 )
 public class AutoUserMapperImpl implements AutoUserMapper {
