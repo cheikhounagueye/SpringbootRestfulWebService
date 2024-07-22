@@ -22,6 +22,7 @@ target/
 target
 .mvn
 target/generated-sources/annotations/org/bambacompany/springboot/mapper/
+.mvn/wrapper
 
 ### NetBeans ###
 /nbproject/private/
