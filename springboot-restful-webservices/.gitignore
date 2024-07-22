@@ -20,7 +20,8 @@ target/
 *.ipr
 *.class
 target
-
+.mvn
+HELP.md
 
 ### NetBeans ###
 /nbproject/private/
