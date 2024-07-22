@@ -21,7 +21,7 @@ target/
 *.class
 target
 .mvn
-HELP.md
+target/generated-sources/annotations/org/bambacompany/springboot/mapper/
 
 ### NetBeans ###
 /nbproject/private/
